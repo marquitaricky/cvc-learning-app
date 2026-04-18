@@ -3,10 +3,48 @@
 <head>
   <title>CVC Learning App</title>
 </head>
-<body>
+<body style="text-align:center; font-family: Arial; background-color:#f0f8ff;">
 
-  <h1>Welcome to the CVC Learning App 🎉</h1>
-  <p>Learning to read is fun!</p>
+  <h1>Build the Word</h1>
+  <h2>Make the word: CAT 🐱</h2>
+
+  <h1 id="word">_ _ _</h1>
+
+  <button onclick="addLetter('C')">C</button>
+  <button onclick="addLetter('A')">A</button>
+  <button onclick="addLetter('T')">T</button>
+  <button onclick="addLetter('B')">B</button>
+
+  <br><br>
+
+  <button onclick="checkAnswer()">Check Answer</button>
+  <button onclick="resetWord()">Reset</button>
+
+  <script>
+    let currentWord = [];
+
+    function addLetter(letter) {
+      if (currentWord.length < 3) {
+        currentWord.push(letter);
+        document.getElementById("word").innerText = currentWord.join(" ");
+      }
+    }
+
+    function checkAnswer() {
+      let word = currentWord.join("");
+
+      if (word === "CAT") {
+        alert("YESSS! 🎉 Great job!");
+      } else {
+        alert("Try again 😊");
+      }
+    }
+
+    function resetWord() {
+      currentWord = [];
+      document.getElementById("word").innerText = "_ _ _";
+    }
+  </script>
 
 </body>
 </html>
